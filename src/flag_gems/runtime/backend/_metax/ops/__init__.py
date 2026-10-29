@@ -73,6 +73,7 @@ from .upsample_nearest2d import upsample_nearest2d
 from .zero import zero, zero_, zero_out
 from .zeros import zeros
 from .zeros_like import zeros_like
+from .weight_int8pack_mm import weight_int8pack_mm
 
 __all__ = [
     "_conv_depthwise2d",
@@ -163,6 +164,7 @@ __all__ = [
     "to_copy",
     "upsample_linear1d",
     "upsample_nearest2d",
+    "weight_int8pack_mm",
     "zero",
     "zero_",
     "zero_out",
