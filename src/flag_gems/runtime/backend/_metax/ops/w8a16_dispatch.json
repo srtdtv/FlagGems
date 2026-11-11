@@ -1,0 +1,1547 @@
+{
+  "schema_version": 1,
+  "contract": "BF16xINT8_to_BF16_FP32_acc_scale_after_dot",
+  "device": "MetaX C500",
+  "quantization": "symmetric_per_output_channel_int8_fp32_scale",
+  "exact": [
+    {
+      "shape": [
+        1,
+        2048,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        3,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        1,
+        2048,
+        6144
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        128,
+        64,
+        4,
+        2,
+        32
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        1,
+        2560,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        1,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        1,
+        12288,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        128,
+        64,
+        4,
+        2,
+        2
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        2,
+        2048,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        2,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        2,
+        2048,
+        6144
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        3,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        2,
+        2560,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        3,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        2,
+        12288,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        128,
+        64,
+        4,
+        2,
+        2
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        3,
+        2048,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        2,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": true
+    },
+    {
+      "shape": [
+        3,
+        2048,
+        6144
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        2,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        3,
+        2560,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        2,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        3,
+        12288,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        128,
+        64,
+        4,
+        2,
+        2
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        4,
+        2048,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        1,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": true
+    },
+    {
+      "shape": [
+        4,
+        2048,
+        6144
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        2,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        4,
+        2560,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        1,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        4,
+        12288,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        128,
+        64,
+        8,
+        2,
+        2
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        8,
+        2048,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        2,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        8,
+        2048,
+        6144
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        2,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        8,
+        2560,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        2,
+        4
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        8,
+        12288,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        2,
+        2
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        16,
+        2048,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        3,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": true
+    },
+    {
+      "shape": [
+        16,
+        2048,
+        6144
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        2,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        16,
+        2560,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        64,
+        128,
+        4,
+        2,
+        2
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        16,
+        12288,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        16,
+        128,
+        64,
+        8,
+        2,
+        2
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        24,
+        2048,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        32,
+        32,
+        128,
+        4,
+        1,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        24,
+        2048,
+        6144
+      ],
+      "algorithm": "splitk",
+      "config": [
+        32,
+        32,
+        256,
+        4,
+        1,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        24,
+        2560,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        32,
+        64,
+        128,
+        8,
+        2,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        24,
+        12288,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        32,
+        128,
+        64,
+        2,
+        2,
+        2
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        32,
+        2048,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        32,
+        64,
+        128,
+        8,
+        1,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        32,
+        2048,
+        6144
+      ],
+      "algorithm": "splitk",
+      "config": [
+        32,
+        32,
+        256,
+        4,
+        1,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        32,
+        2560,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        32,
+        64,
+        128,
+        8,
+        2,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        32,
+        12288,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        32,
+        128,
+        64,
+        2,
+        2,
+        2
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        40,
+        12288,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        32,
+        64,
+        128,
+        4,
+        1,
+        4
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        48,
+        2048,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        2,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        48,
+        2048,
+        6144
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        1,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        48,
+        2560,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        1,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        48,
+        12288,
+        2048
+      ],
+      "algorithm": "dense",
+      "config": [
+        64,
+        64,
+        64,
+        8,
+        2
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-dense-launchfix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        56,
+        2048,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        1,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        56,
+        2048,
+        6144
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        1,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": true
+    },
+    {
+      "shape": [
+        56,
+        2560,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        1,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        64,
+        2048,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        2,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        64,
+        2048,
+        6144
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        1,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": true
+    },
+    {
+      "shape": [
+        64,
+        2560,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        128,
+        128,
+        4,
+        1,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        64,
+        12288,
+        2048
+      ],
+      "algorithm": "dense",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        1
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-dense-launchfix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        72,
+        2048,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        1,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        72,
+        2048,
+        6144
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        1,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        72,
+        2560,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        1,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        80,
+        2048,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        1,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        80,
+        2048,
+        6144
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        1,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        80,
+        2560,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        1,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        80,
+        12288,
+        2048
+      ],
+      "algorithm": "dense",
+      "config": [
+        128,
+        128,
+        64,
+        8,
+        2
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-dense-launchfix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        88,
+        12288,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        32,
+        64,
+        128,
+        4,
+        1,
+        4
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        96,
+        2048,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        1,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        96,
+        2048,
+        6144
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        1,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        96,
+        2560,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        3,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        96,
+        12288,
+        2048
+      ],
+      "algorithm": "dense",
+      "config": [
+        128,
+        128,
+        64,
+        8,
+        2
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-dense-launchfix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        104,
+        2048,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        64,
+        128,
+        4,
+        1,
+        8
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        104,
+        2048,
+        6144
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        128,
+        64,
+        4,
+        1,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        104,
+        12288,
+        2048
+      ],
+      "algorithm": "dense",
+      "config": [
+        128,
+        128,
+        64,
+        8,
+        2
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-dense-launchfix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        112,
+        2048,
+        6144
+      ],
+      "algorithm": "splitk",
+      "config": [
+        64,
+        128,
+        128,
+        4,
+        1,
+        16
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    },
+    {
+      "shape": [
+        112,
+        12288,
+        2048
+      ],
+      "algorithm": "splitk",
+      "config": [
+        32,
+        64,
+        128,
+        4,
+        1,
+        2
+      ],
+      "status": "measured_candidate",
+      "source": "2026-11-05-w8a16-splitk-launch-fix-01",
+      "stable_bf16_gain": false
+    }
+  ],
+  "pools": {
+    "down_tiny": [
+      [
+        16,
+        64,
+        128,
+        4,
+        2,
+        16
+      ],
+      [
+        16,
+        64,
+        128,
+        4,
+        3,
+        16
+      ],
+      [
+        16,
+        64,
+        128,
+        4,
+        2,
+        8
+      ],
+      [
+        16,
+        128,
+        64,
+        4,
+        2,
+        32
+      ]
+    ],
+    "down_small": [
+      [
+        32,
+        32,
+        256,
+        4,
+        1,
+        8
+      ],
+      [
+        32,
+        64,
+        128,
+        4,
+        2,
+        8
+      ]
+    ],
+    "down_transition": [
+      [
+        64,
+        64,
+        128,
+        4,
+        1,
+        8
+      ],
+      [
+        64,
+        128,
+        64,
+        4,
+        1,
+        16
+      ],
+      [
+        64,
+        128,
+        64,
+        8,
+        1,
+        16
+      ]
+    ],
+    "down_upper": [
+      [
+        64,
+        64,
+        128,
+        4,
+        1,
+        8
+      ],
+      [
+        64,
+        128,
+        64,
+        4,
+        1,
+        16
+      ],
+      [
+        64,
+        128,
+        128,
+        4,
+        1,
+        16
+      ]
+    ],
+    "gate_up_tiny": [
+      [
+        16,
+        128,
+        64,
+        4,
+        2,
+        2
+      ],
+      [
+        16,
+        128,
+        64,
+        8,
+        2,
+        2
+      ],
+      [
+        16,
+        64,
+        128,
+        4,
+        2,
+        2
+      ]
+    ],
+    "gate_up_small": [
+      [
+        32,
+        128,
+        64,
+        2,
+        2,
+        2
+      ],
+      [
+        32,
+        64,
+        128,
+        4,
+        1,
+        4
+      ]
+    ],
+    "gate_up_dense_mid": [
+      [
+        64,
+        64,
+        64,
+        8,
+        2
+      ],
+      [
+        64,
+        64,
+        128,
+        4,
+        1
+      ],
+      [
+        128,
+        128,
+        64,
+        8,
+        2
+      ]
+    ],
+    "qkv_tiny": [
+      [
+        16,
+        64,
+        128,
+        4,
+        1,
+        16
+      ],
+      [
+        16,
+        64,
+        128,
+        4,
+        2,
+        16
+      ],
+      [
+        16,
+        64,
+        128,
+        4,
+        2,
+        2
+      ]
+    ],
+    "qkv_small": [
+      [
+        32,
+        64,
+        128,
+        8,
+        2,
+        16
+      ],
+      [
+        32,
+        64,
+        128,
+        8,
+        3,
+        16
+      ]
+    ],
+    "qkv_mid": [
+      [
+        64,
+        64,
+        128,
+        4,
+        1,
+        16
+      ],
+      [
+        64,
+        128,
+        128,
+        4,
+        1,
+        8
+      ],
+      [
+        64,
+        64,
+        128,
+        4,
+        3,
+        16
+      ]
+    ],
+    "o_tiny": [
+      [
+        16,
+        64,
+        128,
+        4,
+        1,
+        16
+      ],
+      [
+        16,
+        64,
+        128,
+        4,
+        2,
+        16
+      ],
+      [
+        16,
+        64,
+        128,
+        4,
+        3,
+        16
+      ]
+    ],
+    "o_small": [
+      [
+        16,
+        64,
+        128,
+        4,
+        3,
+        8
+      ],
+      [
+        16,
+        64,
+        128,
+        4,
+        2,
+        8
+      ],
+      [
+        32,
+        32,
+        128,
+        4,
+        1,
+        8
+      ],
+      [
+        32,
+        64,
+        128,
+        8,
+        1,
+        8
+      ]
+    ],
+    "o_mid": [
+      [
+        64,
+        64,
+        128,
+        4,
+        2,
+        16
+      ],
+      [
+        64,
+        64,
+        128,
+        4,
+        1,
+        16
+      ],
+      [
+        64,
+        64,
+        128,
+        4,
+        1,
+        8
+      ]
+    ],
+    "gate_up_transition": [
+      [
+        32,
+        64,
+        128,
+        4,
+        1,
+        4
+      ],
+      [
+        32,
+        128,
+        64,
+        2,
+        2,
+        2
+      ],
+      [
+        32,
+        64,
+        128,
+        4,
+        1,
+        2
+      ]
+    ],
+    "gate_up_dense_transition": [
+      [
+        32,
+        64,
+        128,
+        4,
+        2
+      ],
+      [
+        32,
+        64,
+        128,
+        8,
+        2
+      ],
+      [
+        64,
+        64,
+        64,
+        8,
+        2
+      ]
+    ]
+  },
+  "source_notes": [
+    "Split-K launch-fix 60 points",
+    "Dense launch-fix 16 points",
+    "cross-container algorithm ranking remains provisional"
+  ],
+  "torch_version": "2.8.0+metax3.7.0.7",
+  "triton_version": "3.0.0"
+}

@@ -407,6 +407,144 @@ def mm_kernel_nt(
         tl.store(c_ptrs, result, mask=(rm < M)[:, None] & (rn < N)[None, :])
 
 
+@triton.jit
+def mm_kernel_nt_scale(
+    A,
+    B,
+    C,
+    Scales,
+    M,
+    N,
+    K,
+    BLOCK_M: tl.constexpr,
+    BLOCK_N: tl.constexpr,
+    BLOCK_K: tl.constexpr,
+    GROUP_M: tl.constexpr,
+    EVEN_M: tl.constexpr,
+    EVEN_N: tl.constexpr,
+    EVEN_K: tl.constexpr,
+):
+    pid = tl.program_id(0)
+    grid_m = tl.cdiv(M, BLOCK_M)
+    grid_n = tl.cdiv(N, BLOCK_N)
+
+    width = GROUP_M * grid_n
+    group_id = pid // width
+    group_size = min(grid_m - group_id * GROUP_M, GROUP_M)
+    pid_m = group_id * GROUP_M + pid % group_size
+    pid_n = pid % width // group_size
+
+    rm = pid_m * BLOCK_M + tl.arange(0, BLOCK_M)
+    rn = pid_n * BLOCK_N + tl.arange(0, BLOCK_N)
+    if EVEN_M:
+        ram = tl.max_contiguous(tl.multiple_of(rm, BLOCK_M), BLOCK_M)
+    else:
+        ram = tl.max_contiguous(tl.multiple_of(rm % M, BLOCK_M), BLOCK_M)
+    if EVEN_N:
+        rbn = tl.max_contiguous(tl.multiple_of(rn, BLOCK_N), BLOCK_N)
+    else:
+        rbn = tl.max_contiguous(tl.multiple_of(rn % N, BLOCK_N), BLOCK_N)
+
+    rk = tl.arange(0, BLOCK_K)
+    a_ptrs = A + ram[:, None] * K + rk[None, :]
+    b_ptrs = B + rk[:, None] + rbn[None, :] * K
+    acc = tl.zeros((BLOCK_M, BLOCK_N), dtype=tl.float32)
+
+    for k in range(0, tl.cdiv(K, BLOCK_K)):
+        if EVEN_K:
+            a = tl.load(a_ptrs)
+            b = tl.load(b_ptrs)
+        else:
+            k_remaining = K - k * BLOCK_K
+            a = tl.load(a_ptrs, mask=rk[None, :] < k_remaining, other=0.0)
+            b = tl.load(b_ptrs, mask=rk[:, None] < k_remaining, other=0.0)
+        if a.dtype != b.dtype:
+            a = a.to(C.dtype.element_ty)
+            b = b.to(C.dtype.element_ty)
+        acc = tl.dot(a, b, acc, out_dtype=tl.float32, allow_tf32=False)
+        a_ptrs += BLOCK_K
+        b_ptrs += BLOCK_K
+
+    c_ptrs = C + rm[:, None] * N + rn[None, :]
+    # Preserve Separate's intermediate BF16 rounding before FP32 scaling.
+    rounded = acc.to(tl.bfloat16).to(tl.float32)
+    scales = tl.load(Scales + rn, mask=rn < N, other=0.0)
+    result = (rounded * scales[None, :]).to(C.dtype.element_ty)
+    if EVEN_M and EVEN_N:
+        tl.store(c_ptrs, result)
+    else:
+        tl.store(c_ptrs, result, mask=(rm < M)[:, None] & (rn < N)[None, :])
+
+
+@triton.jit
+def mm_kernel_nt_scale_direct(
+    A,
+    B,
+    C,
+    Scales,
+    M,
+    N,
+    K,
+    BLOCK_M: tl.constexpr,
+    BLOCK_N: tl.constexpr,
+    BLOCK_K: tl.constexpr,
+    GROUP_M: tl.constexpr,
+    EVEN_M: tl.constexpr,
+    EVEN_N: tl.constexpr,
+    EVEN_K: tl.constexpr,
+):
+    pid = tl.program_id(0)
+    grid_m = tl.cdiv(M, BLOCK_M)
+    grid_n = tl.cdiv(N, BLOCK_N)
+
+    width = GROUP_M * grid_n
+    group_id = pid // width
+    group_size = min(grid_m - group_id * GROUP_M, GROUP_M)
+    pid_m = group_id * GROUP_M + pid % group_size
+    pid_n = pid % width // group_size
+
+    rm = pid_m * BLOCK_M + tl.arange(0, BLOCK_M)
+    rn = pid_n * BLOCK_N + tl.arange(0, BLOCK_N)
+    if EVEN_M:
+        ram = tl.max_contiguous(tl.multiple_of(rm, BLOCK_M), BLOCK_M)
+    else:
+        ram = tl.max_contiguous(tl.multiple_of(rm % M, BLOCK_M), BLOCK_M)
+    if EVEN_N:
+        rbn = tl.max_contiguous(tl.multiple_of(rn, BLOCK_N), BLOCK_N)
+    else:
+        rbn = tl.max_contiguous(tl.multiple_of(rn % N, BLOCK_N), BLOCK_N)
+
+    rk = tl.arange(0, BLOCK_K)
+    a_ptrs = A + ram[:, None] * K + rk[None, :]
+    b_ptrs = B + rk[:, None] + rbn[None, :] * K
+    acc = tl.zeros((BLOCK_M, BLOCK_N), dtype=tl.float32)
+
+    for k in range(0, tl.cdiv(K, BLOCK_K)):
+        if EVEN_K:
+            a = tl.load(a_ptrs)
+            b = tl.load(b_ptrs)
+        else:
+            k_remaining = K - k * BLOCK_K
+            a = tl.load(a_ptrs, mask=rk[None, :] < k_remaining, other=0.0)
+            b = tl.load(b_ptrs, mask=rk[:, None] < k_remaining, other=0.0)
+        if a.dtype != b.dtype:
+            a = a.to(C.dtype.element_ty)
+            b = b.to(C.dtype.element_ty)
+        acc = tl.dot(a, b, acc, out_dtype=tl.float32, allow_tf32=False)
+        a_ptrs += BLOCK_K
+        b_ptrs += BLOCK_K
+
+    c_ptrs = C + rm[:, None] * N + rn[None, :]
+    # Preserve Separate's intermediate BF16 rounding before FP32 scaling.
+    rounded = acc
+    scales = tl.load(Scales + rn, mask=rn < N, other=0.0)
+    result = (rounded * scales[None, :]).to(C.dtype.element_ty)
+    if EVEN_M and EVEN_N:
+        tl.store(c_ptrs, result)
+    else:
+        tl.store(c_ptrs, result, mask=(rm < M)[:, None] & (rn < N)[None, :])
+
+
 def _prune_gemv_configs(configs, named_args, **kwargs):
     configs = list(configs)
     pruned_configs = [
